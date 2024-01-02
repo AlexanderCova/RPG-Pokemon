@@ -1,6 +1,8 @@
-res://Scenes/World/ViridianCity.tscn
 res://Scenes/game_manager.tscn
-res://Scenes/Player/player.gd
 res://Scenes/Player/player.tscn
-res://Scenes/CharacterBody2D.gd
+res://Scenes/World/ViridianCity.tscn
+res://Scenes/Player/player.gd
 res://Scripts/game_manager.gd
+res://Scripts/Global.gd
+res://Assets/UI/MainTheme.tres
+res://Scenes/ui.tscn

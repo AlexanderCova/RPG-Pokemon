@@ -8,12 +8,13 @@ const JUMP_VELOCITY = -400.0
 @onready var anim = $AnimationPlayer
 var direction = "down"
 var action = "idle"
+var username : String
 
 
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 	$Camera2D.enabled = is_multiplayer_authority()
-	$Label.text = name
+	$Label.text = Global.username
 	print(position)
 
 
@@ -24,16 +25,16 @@ func _physics_process(delta):
 			get_tree().current_scene.exit_game(name.to_int())
 		
 		velocity = Vector2.ZERO
-		if Input.is_action_pressed('ui_right'):
+		if Input.is_action_pressed('Walk_Right'):
 			velocity.x += SPEED
 			direction = "right"
-		elif Input.is_action_pressed('ui_left'):
+		elif Input.is_action_pressed('Walk_Left'):
 			velocity.x -= SPEED
 			direction = "left"
-		elif Input.is_action_pressed('ui_down'):
+		elif Input.is_action_pressed('Walk_Down'):
 			velocity.y += SPEED
 			direction = "down"
-		elif Input.is_action_pressed('ui_up'):
+		elif Input.is_action_pressed('Walk_Up'):
 			velocity.y -= SPEED
 			direction = "up"
 		

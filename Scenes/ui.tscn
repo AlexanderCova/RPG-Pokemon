@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj7rxuts75f3u"]
+
+[ext_resource type="Texture2D" uid="uid://dvmp1cxfokbdj" path="res://Assets/UI/Menus/StartMenu.png" id="1_75dt4"]
+[ext_resource type="Theme" uid="uid://bj7gtruv4vc18" path="res://Assets/UI/MainTheme.tres" id="2_ifiqg"]
+
+[node name="Ui" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -346.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control/StartMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_75dt4")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/StartMenu/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 86.0
+offset_right = -23.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyButton" type="Button" parent="Control/StartMenu/Background/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ifiqg")
+text = "Pokemon"
+flat = true
+alignment = 0
+
+[node name="Bag" type="Button" parent="Control/StartMenu/Background/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ifiqg")
+text = "Bag"
+flat = true
+alignment = 0
+
+[node name="PartyMenu" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SummaryMenu" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

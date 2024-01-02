@@ -8,8 +8,8 @@ var peer = ENetMultiplayerPeer.new()
 
 
 func _on_host_button_pressed():
+	Global.username = $"Start Screen/VBoxContainer/LineEdit".text
 	peer.create_server(135)
-	peer.set_bind_ip("127.0.0.1")
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	add_player()
@@ -17,9 +17,11 @@ func _on_host_button_pressed():
 	start_screen.hide()
 	
 func _on_join_button_pressed():
+	Global.username = $"Start Screen/VBoxContainer/LineEdit".text
 	peer.create_client("127.0.0.1", 135)
 	multiplayer.multiplayer_peer = peer
 	camera.enabled = false
+	
 	start_screen.hide()
 	print("joined")
 	
