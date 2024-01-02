@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk6ma1fglefn7"]
+
+[ext_resource type="Texture2D" uid="uid://b8gbady64ivej" path="res://Assets/Sprites/Player/MaleSpritesheet.png" id="1_e5kci"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_yrr8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy0gp"]
+size = Vector2(20, 11)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_asf0v"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_yrr8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_e5kci")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_uy0gp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_asf0v")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -41.0
+offset_right = 20.0
+offset_bottom = -18.0
