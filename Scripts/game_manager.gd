@@ -4,7 +4,7 @@ var peer = ENetMultiplayerPeer.new()
 @export var player_scene : PackedScene
 @onready var camera = $Camera2D
 @onready var start_screen = $"Start Screen"
-
+@onready var ui = $Ui
 
 
 func _on_host_button_pressed():
@@ -15,13 +15,14 @@ func _on_host_button_pressed():
 	add_player()
 	camera.enabled = false
 	start_screen.hide()
+	ui.show()
 	
 func _on_join_button_pressed():
 	Global.username = $"Start Screen/VBoxContainer/LineEdit".text
 	peer.create_client("127.0.0.1", 135)
 	multiplayer.multiplayer_peer = peer
 	camera.enabled = false
-	
+	ui.show()
 	start_screen.hide()
 	print("joined")
 	

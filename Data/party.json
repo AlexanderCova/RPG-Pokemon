@@ -1,0 +1,51 @@
+[
+	{
+		"id" : 25,
+		"level": 15,
+		"nickname" : "Pokemon1",
+		"moves" : [
+			{"id": 33, "pp": 35},
+			{"id" : 3, "pp" : 15}
+		],
+		"stats" : {
+			"HP": 45,
+			"Attack": 49,
+			"Defense": 49,
+			"Sp. Attack": 65,
+			"Sp. Defense": 65,
+			"Speed": 45
+		}
+	},
+	{
+		"id" : 11,
+		"level": 10,
+		"nickname" : "Pokemon2",
+		"moves" : [
+			{"id": 33, "pp": 35},
+		],
+		"stats" : {
+			"HP": 45,
+			"Attack": 49,
+			"Defense": 49,
+			"Sp. Attack": 65,
+			"Sp. Defense": 65,
+			"Speed": 45
+		}
+	},
+	{
+		"id" : 355,
+		"level": 35,
+		"nickname" : "Pokemon3",
+		"moves" : [
+			{"id": 33, "pp": 35},
+		],
+		"stats" : {
+			"HP": 45,
+			"Attack": 49,
+			"Defense": 49,
+			"Sp. Attack": 65,
+			"Sp. Defense": 65,
+			"Speed": 45
+		}
+	}
+]

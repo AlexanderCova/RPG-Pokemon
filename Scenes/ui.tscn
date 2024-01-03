@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj7rxuts75f3u"]
+[gd_scene load_steps=24 format=3 uid="uid://bj7rxuts75f3u"]
 
 [ext_resource type="Texture2D" uid="uid://dvmp1cxfokbdj" path="res://Assets/UI/Menus/StartMenu.png" id="1_75dt4"]
+[ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_gnpvr"]
 [ext_resource type="Theme" uid="uid://bj7gtruv4vc18" path="res://Assets/UI/MainTheme.tres" id="2_ifiqg"]
+[ext_resource type="Texture2D" uid="uid://ytsqx356utd3" path="res://Assets/UI/Menus/PartyScene/Backgound.png" id="3_82l0m"]
+[ext_resource type="Texture2D" uid="uid://lf1mcpbscj14" path="res://Assets/UI/Menus/SummaryMenu/MovesetFrame.png" id="3_l77fh"]
+[ext_resource type="Script" path="res://Scripts/PartyMenu.gd" id="3_un52t"]
+[ext_resource type="Texture2D" uid="uid://c024v1klilkt5" path="res://Assets/Sprites/sprites/001MS.png" id="4_e6rmj"]
+[ext_resource type="Texture2D" uid="uid://cr8chbfm4f3ke" path="res://Assets/UI/Menus/PartyScene/LeadPokemon.png" id="4_jwabc"]
+[ext_resource type="Texture2D" uid="uid://btob3gp1tkjgo" path="res://Assets/UI/Menus/PartyScene/LeadPokemon-Hover.png" id="6_ydj5g"]
+[ext_resource type="Script" path="res://Scripts/SummaryMenu.gd" id="7_1axi7"]
+[ext_resource type="Texture2D" uid="uid://7tqm76rjcr31" path="res://Assets/UI/Menus/PartyScene/OptionsMenu.png" id="8_jth70"]
+[ext_resource type="Texture2D" uid="uid://ceeuh8cb2ota7" path="res://Assets/UI/Menus/PartyScene/party-pokemon.png" id="11_dboj0"]
+[ext_resource type="Texture2D" uid="uid://bldrcv0pt8hpk" path="res://Assets/UI/Menus/SummaryMenu/CancelButton.png" id="11_tcis5"]
+[ext_resource type="Texture2D" uid="uid://bsd3dfam1vpf2" path="res://Assets/UI/Menus/PartyScene/party-pokemon-hover.png" id="12_a61fj"]
+[ext_resource type="Texture2D" uid="uid://b5ebu83v21e75" path="res://Assets/UI/Menus/SummaryMenu/CancelButton-Hover.png" id="12_papp4"]
+[ext_resource type="Script" path="res://Scripts/MovesetMenu.gd" id="15_ro846"]
+[ext_resource type="Script" path="res://Scripts/StatsMenu.gd" id="16_4eokv"]
+[ext_resource type="Texture2D" uid="uid://hfsh1w367vl8" path="res://Assets/UI/Menus/SummaryMenu/StatsFrame.png" id="16_y4bu6"]
+[ext_resource type="Texture2D" uid="uid://c4tloh06ubquo" path="res://Assets/UI/Menus/SummaryMenu/BasicInfoFrame.png" id="17_mx4b4"]
+[ext_resource type="Script" path="res://Scripts/BasicMenu.gd" id="17_ubca4"]
+[ext_resource type="Texture2D" uid="uid://c8b85be23sfnl" path="res://Assets/UI/Menus/SummaryMenu/Tabs/Tab-1.png" id="18_q6mrf"]
+[ext_resource type="Texture2D" uid="uid://brhuwwdyitg5n" path="res://Assets/UI/Menus/typeIcons/Bug.png" id="19_yru67"]
+[ext_resource type="Texture2D" uid="uid://bemru66n2smt3" path="res://Assets/UI/Menus/typeIcons/Dark.png" id="20_i15r1"]
 
 [node name="Ui" type="CanvasLayer"]
 
@@ -14,6 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StartMenu" type="Control" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -22,6 +44,7 @@ anchor_bottom = 1.0
 offset_left = -346.0
 grow_horizontal = 0
 grow_vertical = 2
+script = ExtResource("1_gnpvr")
 
 [node name="Background" type="TextureRect" parent="Control/StartMenu"]
 texture_filter = 1
@@ -63,11 +86,1011 @@ flat = true
 alignment = 0
 
 [node name="PartyMenu" type="Control" parent="Control"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_un52t")
+
+[node name="ColorRect" type="ColorRect" parent="Control/PartyMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12549, 0.407843, 0.376471, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control/PartyMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_82l0m")
+stretch_mode = 5
+
+[node name="LeadPokemon" type="TextureButton" parent="Control/PartyMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.369
+anchor_bottom = 0.448
+offset_left = 94.0
+offset_top = 78.0
+offset_right = 32.68
+offset_bottom = 15.44
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_jwabc")
+texture_pressed = ExtResource("6_ydj5g")
+texture_hover = ExtResource("6_ydj5g")
+stretch_mode = 5
+
+[node name="PokemonSprite" type="TextureRect" parent="Control/PartyMenu/LeadPokemon"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 68.0
+offset_right = 197.0
+offset_bottom = 199.0
+texture = ExtResource("4_e6rmj")
+expand_mode = 3
+stretch_mode = 6
+flip_h = true
+
+[node name="LevelLabel" type="Label" parent="Control/PartyMenu/LeadPokemon"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 121.0
+offset_right = 266.0
+offset_bottom = 177.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="MaxHPLabel" type="Label" parent="Control/PartyMenu/LeadPokemon"]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 204.0
+offset_right = 335.0
+offset_bottom = 260.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="NameLabel" type="Label" parent="Control/PartyMenu/LeadPokemon"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 59.0
+offset_right = 380.0
+offset_bottom = 115.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Bulbasaur"
+
+[node name="CancelButton" type="TextureButton" parent="Control/PartyMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 927.0
+offset_top = 585.0
+offset_right = 1171.0
+offset_bottom = 711.0
+texture_normal = ExtResource("11_tcis5")
+texture_hover = ExtResource("12_papp4")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PartyMenu"]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 45.0
+offset_right = 1171.0
+offset_bottom = 576.0
+theme_override_constants/separation = 8
+
+[node name="Pokemon2" type="TextureButton" parent="Control/PartyMenu/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(645, 100)
+layout_mode = 2
+texture_normal = ExtResource("11_dboj0")
+texture_pressed = ExtResource("12_a61fj")
+texture_hover = ExtResource("12_a61fj")
+stretch_mode = 5
+
+[node name="PokemonSprite" type="TextureRect" parent="Control/PartyMenu/VBoxContainer/Pokemon2"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 152.0
+offset_bottom = 123.0
+texture = ExtResource("4_e6rmj")
+expand_mode = 3
+stretch_mode = 6
+flip_h = true
+
+[node name="LevelLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon2"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 45.0
+offset_right = 255.0
+offset_bottom = 101.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="MaxHPLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon2"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 53.0
+offset_right = 583.0
+offset_bottom = 109.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="NameLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon2"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 1.0
+offset_right = 349.0
+offset_bottom = 57.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Bulbasaur"
+
+[node name="Pokemon3" type="TextureButton" parent="Control/PartyMenu/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(645, 100)
+layout_mode = 2
+texture_normal = ExtResource("11_dboj0")
+texture_pressed = ExtResource("12_a61fj")
+texture_hover = ExtResource("12_a61fj")
+stretch_mode = 5
+
+[node name="PokemonSprite" type="TextureRect" parent="Control/PartyMenu/VBoxContainer/Pokemon3"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 152.0
+offset_bottom = 123.0
+texture = ExtResource("4_e6rmj")
+expand_mode = 3
+stretch_mode = 6
+flip_h = true
+
+[node name="LevelLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon3"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 45.0
+offset_right = 255.0
+offset_bottom = 101.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="MaxHPLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon3"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 53.0
+offset_right = 583.0
+offset_bottom = 109.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="NameLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon3"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 1.0
+offset_right = 349.0
+offset_bottom = 57.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Bulbasaur"
+
+[node name="Pokemon4" type="TextureButton" parent="Control/PartyMenu/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(645, 100)
+layout_mode = 2
+texture_normal = ExtResource("11_dboj0")
+texture_pressed = ExtResource("12_a61fj")
+texture_hover = ExtResource("12_a61fj")
+stretch_mode = 5
+
+[node name="PokemonSprite" type="TextureRect" parent="Control/PartyMenu/VBoxContainer/Pokemon4"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 152.0
+offset_bottom = 123.0
+texture = ExtResource("4_e6rmj")
+expand_mode = 3
+stretch_mode = 6
+flip_h = true
+
+[node name="LevelLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon4"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 45.0
+offset_right = 255.0
+offset_bottom = 101.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="MaxHPLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon4"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 53.0
+offset_right = 583.0
+offset_bottom = 109.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="NameLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon4"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 1.0
+offset_right = 349.0
+offset_bottom = 57.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Bulbasaur"
+
+[node name="Pokemon5" type="TextureButton" parent="Control/PartyMenu/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(645, 100)
+layout_mode = 2
+texture_normal = ExtResource("11_dboj0")
+texture_pressed = ExtResource("12_a61fj")
+texture_hover = ExtResource("12_a61fj")
+stretch_mode = 5
+
+[node name="PokemonSprite" type="TextureRect" parent="Control/PartyMenu/VBoxContainer/Pokemon5"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 152.0
+offset_bottom = 123.0
+texture = ExtResource("4_e6rmj")
+expand_mode = 3
+stretch_mode = 6
+flip_h = true
+
+[node name="LevelLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon5"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 45.0
+offset_right = 255.0
+offset_bottom = 101.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="MaxHPLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon5"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 53.0
+offset_right = 583.0
+offset_bottom = 109.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="NameLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon5"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 1.0
+offset_right = 349.0
+offset_bottom = 57.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Bulbasaur"
+
+[node name="Pokemon6" type="TextureButton" parent="Control/PartyMenu/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(645, 100)
+layout_mode = 2
+texture_normal = ExtResource("11_dboj0")
+texture_pressed = ExtResource("12_a61fj")
+texture_hover = ExtResource("12_a61fj")
+stretch_mode = 5
+
+[node name="PokemonSprite" type="TextureRect" parent="Control/PartyMenu/VBoxContainer/Pokemon6"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 152.0
+offset_bottom = 123.0
+texture = ExtResource("4_e6rmj")
+expand_mode = 3
+stretch_mode = 6
+flip_h = true
+
+[node name="LevelLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon6"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 45.0
+offset_right = 255.0
+offset_bottom = 101.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="MaxHPLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon6"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 53.0
+offset_right = 583.0
+offset_bottom = 109.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="NameLabel" type="Label" parent="Control/PartyMenu/VBoxContainer/Pokemon6"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 1.0
+offset_right = 349.0
+offset_bottom = 57.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Bulbasaur"
+
+[node name="OptionsMenu" type="Control" parent="Control/PartyMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -341.0
+offset_top = -340.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/PartyMenu/OptionsMenu"]
+texture_filter = 1
+layout_mode = 1
+offset_right = 342.0
+offset_bottom = 340.0
+texture = ExtResource("8_jth70")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PartyMenu/OptionsMenu/TextureRect"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 32.0
+offset_right = 312.0
+offset_bottom = 312.0
+
+[node name="SummaryMenuButton" type="Button" parent="Control/PartyMenu/OptionsMenu/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 80
+text = "Summary
+"
+flat = true
+alignment = 0
+
+[node name="SwitchButton" type="Button" parent="Control/PartyMenu/OptionsMenu/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 80
+text = "Switch"
+flat = true
+alignment = 0
+
+[node name="CloseButton" type="Button" parent="Control/PartyMenu/OptionsMenu/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 80
+text = "Close
+"
+flat = true
+alignment = 0
 
 [node name="SummaryMenu" type="Control" parent="Control"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_1axi7")
+
+[node name="ColorRect" type="ColorRect" parent="Control/SummaryMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="MovesetMenu" type="Control" parent="Control/SummaryMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_ro846")
+
+[node name="MovesetFrame" type="TextureRect" parent="Control/SummaryMenu/MovesetMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_l77fh")
+stretch_mode = 5
+
+[node name="Moves" type="VBoxContainer" parent="Control/SummaryMenu/MovesetMenu"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 99.0
+offset_right = 1171.0
+offset_bottom = 576.0
+theme_override_constants/separation = 25
+
+[node name="Moveslot 1" type="Button" parent="Control/SummaryMenu/MovesetMenu/Moves"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+flat = true
+
+[node name="TypeTexture" type="TextureRect" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 1"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 103.0
+offset_bottom = 41.0
+texture = ExtResource("19_yru67")
+stretch_mode = 5
+
+[node name="MoveName" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 1"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 114.0
+offset_top = -1.0
+offset_right = 378.0
+offset_bottom = 55.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "%move Name%"
+
+[node name="MovePP" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 1"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 338.0
+offset_top = 58.0
+offset_right = 602.0
+offset_bottom = 114.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 48
+text = "PP%%/%%"
+
+[node name="Moveslot 2" type="Button" parent="Control/SummaryMenu/MovesetMenu/Moves"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+flat = true
+
+[node name="TypeTexture" type="TextureRect" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 103.0
+offset_bottom = 41.0
+texture = ExtResource("19_yru67")
+stretch_mode = 5
+
+[node name="MoveName" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 114.0
+offset_top = -1.0
+offset_right = 378.0
+offset_bottom = 55.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "%move Name%"
+
+[node name="MovePP" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 338.0
+offset_top = 58.0
+offset_right = 602.0
+offset_bottom = 114.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 48
+text = "PP%%/%%"
+
+[node name="Moveslot 3" type="Button" parent="Control/SummaryMenu/MovesetMenu/Moves"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+flat = true
+
+[node name="TypeTexture" type="TextureRect" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 103.0
+offset_bottom = 41.0
+texture = ExtResource("19_yru67")
+stretch_mode = 5
+
+[node name="MoveName" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 114.0
+offset_top = -1.0
+offset_right = 378.0
+offset_bottom = 55.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "%move Name%"
+
+[node name="MovePP" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 338.0
+offset_top = 58.0
+offset_right = 602.0
+offset_bottom = 114.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 48
+text = "PP%%/%%"
+
+[node name="Moveslot 4" type="Button" parent="Control/SummaryMenu/MovesetMenu/Moves"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+flat = true
+
+[node name="TypeTexture" type="TextureRect" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 103.0
+offset_bottom = 41.0
+texture = ExtResource("19_yru67")
+stretch_mode = 5
+
+[node name="MoveName" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 114.0
+offset_top = -1.0
+offset_right = 378.0
+offset_bottom = 55.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "%move Name%"
+
+[node name="MovePP" type="Label" parent="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 338.0
+offset_top = 58.0
+offset_right = 602.0
+offset_bottom = 114.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 48
+text = "PP%%/%%"
+
+[node name="PowerLabel" type="Label" parent="Control/SummaryMenu/MovesetMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 317.0
+offset_top = 479.0
+offset_right = 473.0
+offset_bottom = 528.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 48
+text = "%Pwr%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AccuracyLabel" type="Label" parent="Control/SummaryMenu/MovesetMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 317.0
+offset_top = 544.0
+offset_right = 473.0
+offset_bottom = 593.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 48
+text = "%Acy%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsMenu" type="Control" parent="Control/SummaryMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_4eokv")
+
+[node name="StatsFrame" type="TextureRect" parent="Control/SummaryMenu/StatsMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_y4bu6")
+stretch_mode = 5
+
+[node name="HP" type="Label" parent="Control/SummaryMenu/StatsMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 853.0
+offset_top = 91.0
+offset_right = 965.0
+offset_bottom = 147.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_shadow_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_font_sizes/font_size = 64
+text = "%HP%"
+
+[node name="Atk" type="Label" parent="Control/SummaryMenu/StatsMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 172.0
+offset_right = 1141.0
+offset_bottom = 228.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_shadow_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_font_sizes/font_size = 64
+text = "%ATK%"
+
+[node name="Def" type="Label" parent="Control/SummaryMenu/StatsMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 231.0
+offset_right = 1165.0
+offset_bottom = 287.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_shadow_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_font_sizes/font_size = 64
+text = "%ATK%"
+
+[node name="SpAtk" type="Label" parent="Control/SummaryMenu/StatsMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 287.0
+offset_right = 1165.0
+offset_bottom = 343.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_shadow_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_font_sizes/font_size = 64
+text = "%ATK%"
+
+[node name="SpDef" type="Label" parent="Control/SummaryMenu/StatsMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 347.0
+offset_right = 1165.0
+offset_bottom = 403.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_shadow_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_font_sizes/font_size = 64
+text = "%ATK%"
+
+[node name="Spd" type="Label" parent="Control/SummaryMenu/StatsMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 406.0
+offset_right = 1165.0
+offset_bottom = 462.0
+theme = ExtResource("2_ifiqg")
+theme_override_colors/font_shadow_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0.847059, 0.752941, 1)
+theme_override_font_sizes/font_size = 64
+text = "%ATK%"
+
+[node name="BasicMenu" type="Control" parent="Control/SummaryMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_ubca4")
+
+[node name="BasicFrame" type="TextureRect" parent="Control/SummaryMenu/BasicMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_mx4b4")
+stretch_mode = 5
+
+[node name="Type1" type="TextureRect" parent="Control/SummaryMenu/BasicMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 872.0
+offset_top = 229.0
+offset_right = 993.0
+offset_bottom = 287.0
+texture = ExtResource("19_yru67")
+stretch_mode = 5
+
+[node name="Type2" type="TextureRect" parent="Control/SummaryMenu/BasicMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 229.0
+offset_right = 1137.0
+offset_bottom = 287.0
+texture = ExtResource("20_i15r1")
+stretch_mode = 5
+
+[node name="IDLabel" type="Label" parent="Control/SummaryMenu/BasicMenu"]
+texture_filter = 1
+offset_left = 826.0
+offset_top = 92.0
+offset_right = 1005.0
+offset_bottom = 148.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "%Acy%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Control/SummaryMenu/BasicMenu"]
+texture_filter = 1
+offset_left = 848.0
+offset_top = 162.0
+offset_right = 1161.0
+offset_bottom = 218.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "%Acy%"
+vertical_alignment = 1
+
+[node name="ItemLabel" type="Label" parent="Control/SummaryMenu/BasicMenu"]
+texture_filter = 1
+offset_left = 848.0
+offset_top = 431.0
+offset_right = 1161.0
+offset_bottom = 487.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "None"
+vertical_alignment = 1
+
+[node name="OTLabel" type="Label" parent="Control/SummaryMenu/BasicMenu"]
+texture_filter = 1
+offset_left = 848.0
+offset_top = 296.0
+offset_right = 1161.0
+offset_bottom = 352.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "You"
+vertical_alignment = 1
+
+[node name="Pokemon Sprite" type="TextureRect" parent="Control/SummaryMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.102
+anchor_bottom = 0.187
+offset_left = 117.0
+offset_top = 148.0
+offset_right = 494.44
+offset_bottom = 295.36
+texture = ExtResource("4_e6rmj")
+stretch_mode = 5
+flip_h = true
+
+[node name="PokemonName" type="Label" parent="Control/SummaryMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 244.0
+offset_top = 85.0
+offset_right = 572.0
+offset_bottom = 141.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "%Pokemon Name%"
+
+[node name="PokemonLevel" type="Label" parent="Control/SummaryMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 115.0
+offset_top = 89.0
+offset_right = 187.0
+offset_bottom = 145.0
+theme = ExtResource("2_ifiqg")
+theme_override_font_sizes/font_size = 64
+text = "Lv5"
+
+[node name="CancelButton" type="TextureButton" parent="Control/SummaryMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 102.0
+offset_top = 627.0
+offset_right = 293.0
+offset_bottom = 707.0
+texture_normal = ExtResource("11_tcis5")
+texture_hover = ExtResource("12_papp4")
+stretch_mode = 5
+
+[node name="Tabs" type="TextureRect" parent="Control/SummaryMenu"]
+texture_filter = 1
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 0
+offset_left = 100.0
+offset_top = -2.0
+offset_right = 1180.0
+offset_bottom = 73.0
+texture = ExtResource("18_q6mrf")
+stretch_mode = 5
+
+[node name="Tab1Button" type="Button" parent="Control/SummaryMenu"]
+layout_mode = 0
+offset_left = 563.0
+offset_top = 6.0
+offset_right = 613.0
+offset_bottom = 65.0
+flat = true
+
+[node name="Tab2Button" type="Button" parent="Control/SummaryMenu"]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 6.0
+offset_right = 684.0
+offset_bottom = 65.0
+flat = true
+
+[node name="Tab3Button" type="Button" parent="Control/SummaryMenu"]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 4.0
+offset_right = 755.0
+offset_bottom = 63.0
+flat = true
+
+[connection signal="pressed" from="Control/StartMenu/Background/VBoxContainer/PartyButton" to="Control/StartMenu" method="_on_party_button_pressed"]
+[connection signal="gui_input" from="Control/PartyMenu/LeadPokemon" to="Control/PartyMenu" method="_on_lead_pokemon_gui_input"]
+[connection signal="mouse_entered" from="Control/PartyMenu/LeadPokemon" to="Control/PartyMenu" method="_on_lead_pokemon_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PartyMenu/LeadPokemon" to="Control/PartyMenu" method="_on_lead_pokemon_mouse_exited"]
+[connection signal="pressed" from="Control/PartyMenu/LeadPokemon" to="Control/PartyMenu" method="_on_lead_pokemon_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/CancelButton" to="Control/PartyMenu" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/VBoxContainer/Pokemon2" to="Control/PartyMenu" method="_on_pokemon_2_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/VBoxContainer/Pokemon3" to="Control/PartyMenu" method="_on_pokemon_3_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/VBoxContainer/Pokemon4" to="Control/PartyMenu" method="_on_pokemon_4_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/VBoxContainer/Pokemon5" to="Control/PartyMenu" method="_on_pokemon_5_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/VBoxContainer/Pokemon6" to="Control/PartyMenu" method="_on_pokemon_6_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/OptionsMenu/TextureRect/VBoxContainer/SummaryMenuButton" to="Control/PartyMenu" method="_on_summary_menu_button_pressed"]
+[connection signal="pressed" from="Control/PartyMenu/OptionsMenu/TextureRect/VBoxContainer/CloseButton" to="Control/PartyMenu" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 1" to="Control/SummaryMenu/MovesetMenu" method="_on_moveslot_1_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 2" to="Control/SummaryMenu/MovesetMenu" method="_on_moveslot_2_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 3" to="Control/SummaryMenu/MovesetMenu" method="_on_moveslot_3_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/MovesetMenu/Moves/Moveslot 4" to="Control/SummaryMenu/MovesetMenu" method="_on_moveslot_4_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/CancelButton" to="Control/SummaryMenu" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/Tab1Button" to="Control/SummaryMenu" method="_on_tab_1_button_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/Tab2Button" to="Control/SummaryMenu" method="_on_tab_2_button_pressed"]
+[connection signal="pressed" from="Control/SummaryMenu/Tab3Button" to="Control/SummaryMenu" method="_on_tab_3_button_pressed"]
