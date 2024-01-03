@@ -10,17 +10,20 @@ var direction = "down"
 var action = "idle"
 var username : String
 
+func _ready():
+	position = get_tree().current_scene.get_node("Spawn Point").position
+
 
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 	$Camera2D.enabled = is_multiplayer_authority()
 	$Label.text = Global.username
-	print(position)
+	
 
 
 
 func _physics_process(delta):
-	if is_multiplayer_authority():
+	if is_multiplayer_authority() and Global.can_move:
 		if Input.is_action_just_pressed("ui_cancel"):
 			get_tree().current_scene.exit_game(name.to_int())
 		

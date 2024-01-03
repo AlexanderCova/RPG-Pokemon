@@ -16,3 +16,10 @@ res://Scripts/StartMenu.gd
 res://Scripts/BasicMenu.gd
 res://Scripts/StatsMenu.gd
 res://Scripts/MovesetMenu.gd
+res://Scripts/Grass.gd
+res://Scenes/World/grass.tscn
+res://Scripts/Route.gd
+res://Data/encounters.json
+res://Scripts/BattleScene.gd
+res://Scenes/battle_scene.tscn
+res://Scripts/FightMenuBackground.gd

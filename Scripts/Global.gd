@@ -4,12 +4,15 @@ var username : String
 var team
 var pokedex 
 var moves
+var encounters
 var selected_part_pokemon = 0
+var can_move = true
 
 func _ready():
 	team = read_json_from_file("res://Data/party.json")
 	pokedex = read_json_from_file("res://Data/pokedex.json")
 	moves = read_json_from_file("res://Data/moves.json")
+	encounters = read_json_from_file("res://Data/encounters.json")
 
 
 func read_json_from_file(file_path : String):
@@ -27,3 +30,8 @@ func zeros_check(number):
 	else:
 		return str(number)
 	
+func encounter(pokemon):
+	can_move = false
+	get_tree().current_scene.get_node("BattleScene").show()
+	get_tree().current_scene.get_node("BattleScene").setup(pokemon)
+	print(pokemon)

@@ -1,3 +1,7 @@
-res://Scenes/Player/player.tscn::937362ef09e440e5c917e641b7f87893::1704209334::res://.godot/exported/133200997/export-8e63b53a88b650cb9792f8d8b6d332bc-player.scn
-res://Scenes/World/ViridianCity.tscn::c9e1ab550113f24cddb4ecf01ce8c14c::1704209335::res://.godot/exported/133200997/export-4aa9a37db881e1d49d46e3d047d922f6-ViridianCity.scn
-res://Scenes/game_manager.tscn::a8239cc5fb8ecb5e4cc546ee1b076769::1704209349::res://.godot/exported/133200997/export-90f79b02994603db264ebc01e8d897b0-game_manager.scn
+res://Scenes/Player/player.tscn::f43cf373c35dd4b32cf4b3d0256aa615::1704324282::res://.godot/exported/133200997/export-8e63b53a88b650cb9792f8d8b6d332bc-player.scn
+res://Scenes/World/ViridianCity.tscn::a75faa37fce3c1f03341ed297dcbc5db::1704324283::res://.godot/exported/133200997/export-4aa9a37db881e1d49d46e3d047d922f6-ViridianCity.scn
+res://Scenes/game_manager.tscn::516a91eb296c813860a8359cc6e6bf08::1704324282::res://.godot/exported/133200997/export-90f79b02994603db264ebc01e8d897b0-game_manager.scn
+res://Assets/UI/MainTheme.tres::cacc008dfd3be4c274cf2f60a7fced46::1704296498::res://.godot/exported/133200997/export-400f67e7cbd7ef3a4ba4f5ed999fd7fb-MainTheme.res
+res://Scenes/World/grass.tscn::af0709a3a8d835054458cbc06c57cae2::1704324283::res://.godot/exported/133200997/export-e4501c2defb987df6bb95e0d5a4d280f-grass.scn
+res://Scenes/battle_scene.tscn::00abd3574a6175fba8ff8d46b872227e::1704324283::res://.godot/exported/133200997/export-3f9740a63a9af5321f6f4e139415a64c-battle_scene.scn
+res://Scenes/ui.tscn::8728e3beb1f21aba3d386829a9e5f1ac::1704324283::res://.godot/exported/133200997/export-bc7c2c8286022576ab0a03a61017540b-ui.scn

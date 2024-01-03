@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvyv638w1gxn4"]
+[gd_scene load_steps=13 format=3 uid="uid://cvyv638w1gxn4"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_84fvq"]
 [ext_resource type="PackedScene" uid="uid://bk6ma1fglefn7" path="res://Scenes/Player/player.tscn" id="2_8w6ql"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://bj7gtruv4vc18" path="res://Assets/UI/MainTheme.tres" id="5_78sod"]
 [ext_resource type="Texture2D" uid="uid://vkfuknujya7y" path="res://Assets/UI/Buttons/HostMenu.png" id="5_qodjw"]
 [ext_resource type="PackedScene" uid="uid://bj7rxuts75f3u" path="res://Scenes/ui.tscn" id="7_2em6f"]
+[ext_resource type="PackedScene" uid="uid://cuafkjj4q323i" path="res://Scenes/battle_scene.tscn" id="8_3asdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4dan"]
 size = Vector2(303.5, 8)
@@ -41,7 +42,6 @@ _spawnable_scenes = PackedStringArray("res://Scenes/Player/player.tscn")
 spawn_path = NodePath("..")
 
 [node name="World" parent="." instance=ExtResource("3_ensbd")]
-position = Vector2(33, 146)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World"]
 position = Vector2(696, 377)
@@ -82,6 +82,23 @@ offset_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ColorRect" type="ColorRect" parent="Start Screen"]
+custom_minimum_size = Vector2(175, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -100.0
+offset_right = 87.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_78sod")
+color = Color(0.364706, 0.364706, 0.364706, 0.619608)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Start Screen"]
 layout_mode = 1
 anchors_preset = 8
@@ -96,7 +113,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LineEdit" type="LineEdit" parent="Start Screen/VBoxContainer"]
+[node name="UsernameEdit" type="LineEdit" parent="Start Screen/VBoxContainer"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
@@ -110,13 +127,43 @@ placeholder_text = "Username"
 alignment = 1
 max_length = 16
 
-[node name="HostButton" type="TextureButton" parent="Start Screen/VBoxContainer"]
+[node name="IpEdit" type="LineEdit" parent="Start Screen/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+theme = ExtResource("5_78sod")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.25098, 0.25098, 0.25098, 0.580392)
+theme_override_styles/normal = SubResource("StyleBoxFlat_jabtd")
+placeholder_text = "Enter IP to Join"
+alignment = 1
+
+[node name="PortEdit" type="LineEdit" parent="Start Screen/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+theme = ExtResource("5_78sod")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.25098, 0.25098, 0.25098, 0.580392)
+theme_override_styles/normal = SubResource("StyleBoxFlat_jabtd")
+placeholder_text = "Enter Port to Join"
+alignment = 1
+max_length = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Start Screen/VBoxContainer"]
+layout_mode = 2
+
+[node name="HostButton" type="TextureButton" parent="Start Screen/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("5_qodjw")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Start Screen/VBoxContainer/HostButton"]
+[node name="Label" type="Label" parent="Start Screen/VBoxContainer/HBoxContainer/HostButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,13 +181,13 @@ text = "Host"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="JoinButton" type="TextureButton" parent="Start Screen/VBoxContainer"]
+[node name="JoinButton" type="TextureButton" parent="Start Screen/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("5_qodjw")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Start Screen/VBoxContainer/JoinButton"]
+[node name="Label" type="Label" parent="Start Screen/VBoxContainer/HBoxContainer/JoinButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,7 +212,11 @@ zoom = Vector2(2, 2)
 [node name="Ui" parent="." instance=ExtResource("7_2em6f")]
 visible = false
 
-[connection signal="pressed" from="Start Screen/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="Start Screen/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[node name="Spawn Point" type="Node2D" parent="."]
+position = Vector2(535, 492)
 
-[editable path="World"]
+[node name="BattleScene" parent="." instance=ExtResource("8_3asdr")]
+visible = false
+
+[connection signal="pressed" from="Start Screen/VBoxContainer/HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Start Screen/VBoxContainer/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

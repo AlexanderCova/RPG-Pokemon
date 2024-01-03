@@ -5,10 +5,13 @@ var peer = ENetMultiplayerPeer.new()
 @onready var camera = $Camera2D
 @onready var start_screen = $"Start Screen"
 @onready var ui = $Ui
+@onready var spawn_point = $"Spawn Point"
+@onready var ip_edit = $"Start Screen/VBoxContainer/IpEdit"
+@onready var port_edit = $"Start Screen/VBoxContainer/PortEdit"
 
 
 func _on_host_button_pressed():
-	Global.username = $"Start Screen/VBoxContainer/LineEdit".text
+	Global.username = $"Start Screen/VBoxContainer/UsernameEdit".text
 	peer.create_server(135)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
@@ -18,13 +21,13 @@ func _on_host_button_pressed():
 	ui.show()
 	
 func _on_join_button_pressed():
-	Global.username = $"Start Screen/VBoxContainer/LineEdit".text
-	peer.create_client("127.0.0.1", 135)
+	Global.username = $"Start Screen/VBoxContainer/UsernameEdit".text
+	peer.create_client(ip_edit.text, port_edit.text.to_int())
 	multiplayer.multiplayer_peer = peer
 	camera.enabled = false
 	ui.show()
 	start_screen.hide()
-	print("joined")
+	
 	
 func exit_game(id):
 	multiplayer.peer_disconnected.connect(del_player, id)
@@ -35,8 +38,9 @@ func exit_game(id):
 func add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
+	player.position = spawn_point.position
 	call_deferred("add_child",player)
-	print("added player " + str(id))
+	
 
 func del_player(id):
 	rpc("_del_player", id)

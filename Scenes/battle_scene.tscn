@@ -1,0 +1,261 @@
+[gd_scene load_steps=11 format=3 uid="uid://cuafkjj4q323i"]
+
+[ext_resource type="Script" path="res://Scripts/BattleScene.gd" id="1_iaof1"]
+[ext_resource type="Texture2D" uid="uid://60qwq3i5v4ak" path="res://Assets/Sprites/BattleScene/Grassy-Background.png" id="2_yp2kg"]
+[ext_resource type="Texture2D" uid="uid://bpdaegndq85mi" path="res://Assets/Sprites/BattleScene/ButtonMenu.png" id="3_uf00b"]
+[ext_resource type="Theme" uid="uid://bj7gtruv4vc18" path="res://Assets/UI/MainTheme.tres" id="4_4bf6i"]
+[ext_resource type="Texture2D" uid="uid://o6nbulag0ntn" path="res://Assets/Sprites/BattleScene/FightMenuBackground.png" id="5_m8sio"]
+[ext_resource type="Script" path="res://Scripts/FightMenuBackground.gd" id="6_aby55"]
+[ext_resource type="Texture2D" uid="uid://brhuwwdyitg5n" path="res://Assets/UI/Menus/typeIcons/Bug.png" id="6_mmo52"]
+[ext_resource type="Texture2D" uid="uid://c024v1klilkt5" path="res://Assets/Sprites/sprites/001MS.png" id="8_kkuh7"]
+[ext_resource type="Texture2D" uid="uid://c56c2qp5ya27i" path="res://Assets/Sprites/sprites/002MS.png" id="9_lwxd6"]
+[ext_resource type="Texture2D" uid="uid://q7x5ih5emhx" path="res://Assets/Sprites/BattleScene/OpponentHealth.png" id="10_j3wrb"]
+
+[node name="BattleScene" type="CanvasLayer"]
+script = ExtResource("1_iaof1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BattleBackground" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -116.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yp2kg")
+stretch_mode = 6
+
+[node name="Opponent Health" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuBackground" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -258.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_uf00b")
+stretch_mode = 5
+
+[node name="MainMenu" type="GridContainer" parent="Control/MainMenuBackground"]
+layout_mode = 0
+offset_left = 683.0
+offset_top = 38.0
+offset_right = 1174.0
+offset_bottom = 209.0
+theme_override_constants/h_separation = 175
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="FightButton" type="Button" parent="Control/MainMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "FIGHT
+"
+flat = true
+
+[node name="BagButton" type="Button" parent="Control/MainMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "BAG
+"
+flat = true
+
+[node name="PokemonButton" type="Button" parent="Control/MainMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "POKEMON
+"
+flat = true
+
+[node name="RunButton" type="Button" parent="Control/MainMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "RUN
+"
+flat = true
+
+[node name="Label" type="Label" parent="Control/MainMenuBackground"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 48.0
+offset_right = 509.0
+offset_bottom = 216.0
+theme = ExtResource("4_4bf6i")
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 96
+text = "What Will 
+%Pokemon% Do?"
+
+[node name="FightMenuBackground" type="TextureRect" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -258.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_m8sio")
+stretch_mode = 5
+script = ExtResource("6_aby55")
+
+[node name="MainMenu" type="GridContainer" parent="Control/FightMenuBackground"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 43.0
+offset_right = 558.0
+offset_bottom = 214.0
+theme_override_constants/h_separation = 175
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="Move1" type="Button" parent="Control/FightMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "%MOVE1%
+"
+flat = true
+
+[node name="Move2" type="Button" parent="Control/FightMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "%MOVE2%"
+flat = true
+
+[node name="Move3" type="Button" parent="Control/FightMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "%MOVE3%
+"
+flat = true
+
+[node name="Move4" type="Button" parent="Control/FightMenuBackground/MainMenu"]
+layout_mode = 2
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 80
+text = "%MOVE4%
+"
+flat = true
+
+[node name="PPLabel" type="Label" parent="Control/FightMenuBackground"]
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 59.0
+offset_right = 1205.0
+offset_bottom = 115.0
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 64
+text = "15"
+
+[node name="MaxPPLabel" type="Label" parent="Control/FightMenuBackground"]
+layout_mode = 0
+offset_left = 1174.0
+offset_top = 59.0
+offset_right = 1286.0
+offset_bottom = 115.0
+theme = ExtResource("4_4bf6i")
+theme_override_font_sizes/font_size = 64
+text = "15"
+
+[node name="TypeTexture" type="TextureRect" parent="Control/FightMenuBackground"]
+layout_mode = 0
+offset_left = 1025.0
+offset_top = 152.0
+offset_right = 1156.0
+offset_bottom = 205.0
+texture = ExtResource("6_mmo52")
+stretch_mode = 5
+
+[node name="PokemonSprite" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 183.0
+offset_right = 516.0
+offset_bottom = 558.0
+texture = ExtResource("8_kkuh7")
+stretch_mode = 5
+flip_h = true
+
+[node name="OpponentSprite" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 732.0
+offset_top = -18.0
+offset_right = 1123.0
+offset_bottom = 331.0
+texture = ExtResource("9_lwxd6")
+stretch_mode = 5
+
+[node name="OpponentHealthBackground" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 251.0
+offset_top = 24.0
+offset_right = 675.0
+offset_bottom = 156.0
+texture = ExtResource("10_j3wrb")
+stretch_mode = 5
+
+[node name="OpponentName" type="Label" parent="Control/OpponentHealthBackground"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 10.0
+offset_right = 305.0
+offset_bottom = 66.0
+theme = ExtResource("4_4bf6i")
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "%pokemon%"
+
+[node name="OpponentLvl" type="Label" parent="Control/OpponentHealthBackground"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 21.0
+offset_right = 375.0
+offset_bottom = 77.0
+theme = ExtResource("4_4bf6i")
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "100"
+
+[connection signal="pressed" from="Control/MainMenuBackground/MainMenu/FightButton" to="." method="_on_fight_button_pressed"]
+[connection signal="mouse_entered" from="Control/FightMenuBackground/MainMenu/Move1" to="Control/FightMenuBackground" method="_on_move_1_mouse_entered"]
+[connection signal="mouse_entered" from="Control/FightMenuBackground/MainMenu/Move2" to="Control/FightMenuBackground" method="_on_move_2_mouse_entered"]
+[connection signal="mouse_entered" from="Control/FightMenuBackground/MainMenu/Move3" to="Control/FightMenuBackground" method="_on_move_3_mouse_entered"]
+[connection signal="mouse_entered" from="Control/FightMenuBackground/MainMenu/Move4" to="Control/FightMenuBackground" method="_on_move_4_mouse_entered"]
