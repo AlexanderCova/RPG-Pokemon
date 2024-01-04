@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvyv638w1gxn4"]
+[gd_scene load_steps=12 format=3 uid="uid://cvyv638w1gxn4"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_84fvq"]
 [ext_resource type="PackedScene" uid="uid://bk6ma1fglefn7" path="res://Scenes/Player/player.tscn" id="2_8w6ql"]
@@ -7,7 +7,6 @@
 [ext_resource type="Theme" uid="uid://bj7gtruv4vc18" path="res://Assets/UI/MainTheme.tres" id="5_78sod"]
 [ext_resource type="Texture2D" uid="uid://vkfuknujya7y" path="res://Assets/UI/Buttons/HostMenu.png" id="5_qodjw"]
 [ext_resource type="PackedScene" uid="uid://bj7rxuts75f3u" path="res://Scenes/ui.tscn" id="7_2em6f"]
-[ext_resource type="PackedScene" uid="uid://cuafkjj4q323i" path="res://Scenes/battle_scene.tscn" id="8_3asdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4dan"]
 size = Vector2(303.5, 8)
@@ -210,13 +209,9 @@ offset = Vector2(640, 360)
 zoom = Vector2(2, 2)
 
 [node name="Ui" parent="." instance=ExtResource("7_2em6f")]
-visible = false
 
 [node name="Spawn Point" type="Node2D" parent="."]
 position = Vector2(535, 492)
-
-[node name="BattleScene" parent="." instance=ExtResource("8_3asdr")]
-visible = false
 
 [connection signal="pressed" from="Start Screen/VBoxContainer/HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="Start Screen/VBoxContainer/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

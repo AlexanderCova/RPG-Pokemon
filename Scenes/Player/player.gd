@@ -18,6 +18,7 @@ func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 	$Camera2D.enabled = is_multiplayer_authority()
 	$Label.text = Global.username
+	print(self)
 	
 
 

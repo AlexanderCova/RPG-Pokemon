@@ -30,8 +30,4 @@ func zeros_check(number):
 	else:
 		return str(number)
 	
-func encounter(pokemon):
-	can_move = false
-	get_tree().current_scene.get_node("BattleScene").show()
-	get_tree().current_scene.get_node("BattleScene").setup(pokemon)
-	print(pokemon)
+
