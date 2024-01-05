@@ -1,22 +1,28 @@
-extends Control
+extends CanvasLayer
 
-@onready var main_menu = $MainMenuBackground
-@onready var fight_menu = $FightMenuBackground
-@onready var label = $MainMenuBackground/Label
-@onready var sprite = $PokemonSprite
-@onready var opponent_texture = $OpponentSprite
-@onready var opponent_name = $OpponentHealthBackground/OpponentName
-@onready var opponent_level = $OpponentHealthBackground/OpponentLvl
+@onready var main_menu = $BattleScene/MainMenuBackground
+@onready var fight_menu = $BattleScene/FightMenuBackground
+@onready var label = $BattleScene/MainMenuBackground/Label
+@onready var sprite = $BattleScene/PokemonSprite
+@onready var opponent_texture = $BattleScene/OpponentSprite
+@onready var opponent_name = $BattleScene/OpponentHealthBackground/OpponentName
+@onready var opponent_level = $BattleScene/OpponentHealthBackground/OpponentLvl
 
 var turn = 0
 #0 is our turn, 1 is opponents
+var is_open = false
 
-func encounter(pokemon, body):
-	mouse_filter = 0
+
+func _process(delta):
+	if Input.is_action_just_pressed("select"):
+		encounter({"id" : 016,"level" : 2,"chance" : 0.25,})
+
+func encounter(pokemon):
+	
 	Global.can_move = false
 	show()
 	setup(pokemon)
-	print(body)
+	
 
 func setup(opponent):
 	label.text = "What Will \n" + str(Global.team[0]["nickname"]) + " Do?"

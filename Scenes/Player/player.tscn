@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bk6ma1fglefn7"]
+[gd_scene load_steps=17 format=3 uid="uid://bk6ma1fglefn7"]
 
 [ext_resource type="Texture2D" uid="uid://b8gbady64ivej" path="res://Assets/Sprites/Player/MaleSpritesheet.png" id="1_e5kci"]
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_yrr8j"]
 [ext_resource type="Theme" uid="uid://bj7gtruv4vc18" path="res://Assets/UI/MainTheme.tres" id="3_ogr5o"]
+[ext_resource type="PackedScene" uid="uid://cuafkjj4q323i" path="res://Scenes/battle_scene.tscn" id="4_scdl2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uy0gp"]
 size = Vector2(20, 11)
@@ -217,3 +218,16 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_kpplj")
 }
+
+[node name="BattleScene" parent="." instance=ExtResource("4_scdl2")]
+visible = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_uy0gp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

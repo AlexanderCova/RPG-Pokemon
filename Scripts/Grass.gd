@@ -1,9 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 
-
-
-func _on_body_entered(body):
-	
-	if randi_range(0, 25) == 10 and is_multiplayer_authority():
-		get_parent().encounter(body)
+@export var route_num : int = 102

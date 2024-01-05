@@ -10,6 +10,7 @@ var direction = "down"
 var action = "idle"
 var username : String
 
+
 func _ready():
 	position = get_tree().current_scene.get_node("Spawn Point").position
 
@@ -18,7 +19,8 @@ func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 	$Camera2D.enabled = is_multiplayer_authority()
 	$Label.text = Global.username
-	print(self)
+	if is_multiplayer_authority():
+		print(get_multiplayer_authority())
 	
 
 
@@ -51,3 +53,11 @@ func _physics_process(delta):
 			action = "idle"
 		
 		anim.play(action + direction)
+
+
+func _on_area_2d_body_entered(body):
+	if not multiplayer.is_server() and str(multiplayer.get_unique_id()) == name:
+		Global.can_move = false
+		var encounters = Global.encounters[str(body.route_num)]
+		$BattleScene.encounter(encounters[randi_range(1, 4) - 1])
+	

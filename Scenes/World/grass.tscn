@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8dxj"]
 size = Vector2(16, 16)
 
-[node name="Grass" type="Area2D"]
-collision_mask = 2
+[node name="Grass" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_iuckf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,5 +17,3 @@ shape = SubResource("RectangleShape2D_s8dxj")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_l7ajk")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
