@@ -1,9 +1,9 @@
-res://Scenes/World/grass.tscn
+res://Scenes/battle_scene.tscn
 res://Assets/UI/MainTheme.tres
-res://Scripts/Grass.gd
-res://Scenes/Player/player.tscn
-res://Scenes/Player/player.gd
+res://Scripts/BattleScene.gd
 res://Scenes/game_manager.tscn
+res://Scenes/Player/player.tscn
 res://Scenes/World/ViridianCity.tscn
 res://Scenes/ui.tscn
-res://Scenes/battle_scene.tscn
+res://Scenes/World/grass.tscn
+res://Data/party.json

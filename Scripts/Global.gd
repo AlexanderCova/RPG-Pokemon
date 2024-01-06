@@ -5,6 +5,7 @@ var team
 var pokedex 
 var moves
 var encounters
+var movesets
 var selected_part_pokemon = 0
 var can_move = true
 
@@ -13,6 +14,7 @@ func _ready():
 	pokedex = read_json_from_file("res://Data/pokedex.json")
 	moves = read_json_from_file("res://Data/moves.json")
 	encounters = read_json_from_file("res://Data/encounters.json")
+	movesets = read_json_from_file("res://Data/movesets.json")
 
 
 func read_json_from_file(file_path : String):

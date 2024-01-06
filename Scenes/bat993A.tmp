@@ -63,14 +63,6 @@ theme = ExtResource("4_4bf6i")
 theme_override_font_sizes/font_size = 100
 text = "Opponent Used \"Vine Whip!\""
 
-[node name="TextBoxButton" type="Button" parent="BattleScene/TextBoxBackground"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 1281.0
-offset_bottom = 255.0
-flat = true
-
 [node name="MainMenuBackground" type="TextureRect" parent="BattleScene"]
 texture_filter = 1
 layout_mode = 1

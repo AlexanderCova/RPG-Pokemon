@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cuafkjj4q323i"]
+[gd_scene load_steps=11 format=3 uid="uid://cuafkjj4q323i"]
 
 [ext_resource type="Script" path="res://Scripts/BattleScene.gd" id="1_iaof1"]
 [ext_resource type="Texture2D" uid="uid://60qwq3i5v4ak" path="res://Assets/Sprites/BattleScene/Grassy-Background.png" id="2_yp2kg"]
-[ext_resource type="Texture2D" uid="uid://dcwyy2dvcyu52" path="res://Assets/Sprites/BattleScene/TextBoxBackground.png" id="3_c06gj"]
 [ext_resource type="Texture2D" uid="uid://bpdaegndq85mi" path="res://Assets/Sprites/BattleScene/ButtonMenu.png" id="3_uf00b"]
 [ext_resource type="Theme" uid="uid://bj7gtruv4vc18" path="res://Assets/UI/MainTheme.tres" id="4_4bf6i"]
 [ext_resource type="Texture2D" uid="uid://o6nbulag0ntn" path="res://Assets/Sprites/BattleScene/FightMenuBackground.png" id="5_m8sio"]
@@ -11,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c024v1klilkt5" path="res://Assets/Sprites/sprites/001MS.png" id="8_kkuh7"]
 [ext_resource type="Texture2D" uid="uid://c56c2qp5ya27i" path="res://Assets/Sprites/sprites/002MS.png" id="9_lwxd6"]
 [ext_resource type="Texture2D" uid="uid://q7x5ih5emhx" path="res://Assets/Sprites/BattleScene/OpponentHealth.png" id="10_j3wrb"]
-[ext_resource type="Texture2D" uid="uid://bv38aedukinan" path="res://Assets/Sprites/BattleScene/HealthBarProgress.png" id="12_8a58x"]
-[ext_resource type="Texture2D" uid="uid://cmdt0ttbbj1mb" path="res://Assets/Sprites/BattleScene/HealthBox.png" id="12_fsjc8"]
 
 [node name="BattleScene" type="CanvasLayer"]
 script = ExtResource("1_iaof1")
@@ -38,38 +35,10 @@ grow_vertical = 2
 texture = ExtResource("2_yp2kg")
 stretch_mode = 6
 
-[node name="TextBoxBackground" type="TextureRect" parent="BattleScene"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -256.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("3_c06gj")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="BattleScene/TextBoxBackground"]
-texture_filter = 1
+[node name="Opponent Health" type="TextureRect" parent="BattleScene"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 34.0
-offset_right = 1247.0
-offset_bottom = 221.0
-theme = ExtResource("4_4bf6i")
-theme_override_font_sizes/font_size = 100
-text = "Opponent Used \"Vine Whip!\""
-
-[node name="TextBoxButton" type="Button" parent="BattleScene/TextBoxBackground"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 1281.0
-offset_bottom = 255.0
-flat = true
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="MainMenuBackground" type="TextureRect" parent="BattleScene"]
 texture_filter = 1
@@ -284,63 +253,6 @@ theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "100"
-
-[node name="OpponentHealthBar" type="TextureProgressBar" parent="BattleScene/OpponentHealthBackground"]
-layout_mode = 0
-offset_left = 165.0
-offset_top = 76.0
-offset_right = 369.0
-offset_bottom = 89.0
-step = 0.0
-value = 49.295
-nine_patch_stretch = true
-texture_progress = ExtResource("12_8a58x")
-
-[node name="HealthBackground" type="TextureRect" parent="BattleScene"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 834.0
-offset_top = 335.0
-offset_right = 1258.0
-offset_bottom = 467.0
-texture = ExtResource("12_fsjc8")
-stretch_mode = 5
-
-[node name="PokemonName" type="Label" parent="BattleScene/HealthBackground"]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 2.0
-offset_right = 354.0
-offset_bottom = 58.0
-theme = ExtResource("4_4bf6i")
-theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
-theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 64
-text = "%pokemon%"
-
-[node name="PokemonLvl" type="Label" parent="BattleScene/HealthBackground"]
-layout_mode = 0
-offset_left = 329.0
-offset_top = 9.0
-offset_right = 377.0
-offset_bottom = 65.0
-theme = ExtResource("4_4bf6i")
-theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
-theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "100"
-
-[node name="HealthBar" type="TextureProgressBar" parent="BattleScene/HealthBackground"]
-offset_left = 197.0
-offset_top = 60.0
-offset_right = 369.0
-offset_bottom = 72.0
-step = 0.0
-value = 49.295
-nine_patch_stretch = true
-texture_progress = ExtResource("12_8a58x")
 
 [connection signal="pressed" from="BattleScene/MainMenuBackground/MainMenu/FightButton" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="BattleScene/MainMenuBackground/MainMenu/RunButton" to="." method="_on_run_button_pressed"]

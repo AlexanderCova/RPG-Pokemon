@@ -3,6 +3,7 @@
 		"id" : 25,
 		"level": 15,
 		"nickname" : "Pokemon1",
+		"health" : 45,
 		"moves" : [
 			{"id": 33, "pp": 35},
 			{"id" : 3, "pp" : 15}
